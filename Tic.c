@@ -13,11 +13,11 @@ int main() {
         flag = 0;
         //creation of the board
         printf("\n");
-        printf("%c|%c|%c", pos[0], pos[1], pos[2]);
+        printf("%c|%c|%c\n", pos[0], pos[1], pos[2]);
         printf("-+-+-");
-        printf("%c|%c|%c", pos[3], pos[4], pos[5]);
+        printf("%c|%c|%c\n", pos[3], pos[4], pos[5]);
         printf("-+-+-");
-        printf("%c|%c|%c", pos[6], pos[7], pos[8]);
+        printf("%c|%c|%c\n", pos[6], pos[7], pos[8]);
 
         if (count % 2 == 0) {
             sign = 'X';
@@ -71,5 +71,26 @@ int main() {
             
         }
 
+        flag = 0;
+        if ((pos[0] == sign && pos[4] == sign && pos[8] == sign) || ((pos[2] == sign && pos[4] == sign && pos[8] == sign))) {
+            winner = 1;
+            win(player, winner, pos);
+        }
+
+    }
+}
+
+void win (int player, int winner, int pos[]) {
+    printf("\n");
+    printf("%c|%c|%c\n", pos[0], pos[1], pos[2]);
+    printf("-+-+-");
+    printf("%c|%c|%c\n", pos[3], pos[4], pos[5]);
+    printf("-+-+-");
+    printf("%c|%c|%c\n", pos[6], pos[7], pos[8]);
+
+    if(winner) {
+        printf("Player %d is the winner.\n", player);
+    } else {
+        printf("Match draw\n");
     }
 }
